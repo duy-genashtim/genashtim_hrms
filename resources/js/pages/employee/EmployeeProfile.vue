@@ -53,42 +53,29 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                            <strong><i class="fas fa-users  mr-1"></i> Name here</strong>
 
-                            <p class="text-muted">
+                            <p class="mb-1">
+                                B.S. in Computer Science from the University of Tennessee at Knoxville
+                            </p>
+                            <p>
                                 B.S. in Computer Science from the University of Tennessee at Knoxville
                             </p>
 
                             <hr>
+                            <strong><i class="fas fa-users  mr-1"></i> Name here</strong>
 
-                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                            <p class="text-muted">Malibu, California</p>
-
-                            <hr>
-
-                            <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                            <p class="text-muted">
-                                <span class="tag tag-danger">UI Design</span>
-                                <span class="tag tag-success">Coding</span>
-                                <span class="tag tag-info">Javascript</span>
-                                <span class="tag tag-warning">PHP</span>
-                                <span class="tag tag-primary">Node.js</span>
+                            <p class="mb-1">
+                                B.S. in Computer Science from the University of Tennessee at Knoxville
+                            </p>
+                            <p>
+                                B.S. in Computer Science from the University of Tennessee at Knoxville
                             </p>
 
                             <hr>
-
-                            <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                                fermentum enim neque.</p>
-                            <button
-                                @click="addEmergency"
-                                class="btn btn-block btn-outline-primary"
-                                >
+                            <button @click="addEmergency" class="btn btn-block btn-outline-primary">
                                 Add Emergency Contact
-                                </button>    
+                            </button>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -127,12 +114,9 @@
                                         <dt class="col-sm-3"><b>Timezone</b></dt>
                                         <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
                                     </dl>
-                                    <button
-                                @click="editProfile"
-                                class="btn  btn-outline-primary"
-                                >
-                                Edit Profile
-                                </button>    
+                                    <button @click="editProfile" class="btn  btn-outline-primary">
+                                        Edit Profile
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -153,12 +137,9 @@
                                 <dt class="col-sm-3"><b>Manager</b></dt>
                                 <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
                             </dl>
-                            <button
-                                @click="editDepartment"
-                                class="btn  btn-outline-primary"
-                                >
+                            <button @click="editDepartment" class="btn  btn-outline-primary">
                                 Edit Department
-                                </button>    
+                            </button>
                         </div><!-- /.card-body -->
                     </div>
                     <!-- /.card -->
@@ -166,14 +147,11 @@
                         <div class="card-header">
                             <h3 class="card-title">Work History</h3>
                             <div class="card-tools">
-                               
-                                    <button
-                                    @click="addWorkHistory"
-                                    class="btn btn-block btn-outline-primary"
-                                    >
+
+                                <button @click="addWorkHistory" class="btn btn-block btn-outline-primary">
                                     Add Work History
-                                    </button>
-                               
+                                </button>
+
                             </div>
                         </div>
                         <div class="card-body ">

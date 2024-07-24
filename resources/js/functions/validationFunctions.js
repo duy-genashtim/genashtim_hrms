@@ -86,3 +86,19 @@ export function validateEmployeeForm(data) {
 
     return errors;
 }
+
+export function validateEmergencyContactForm(data) {
+    const errors = {};
+
+    if (!isNotEmpty(data.full_name)) {
+        errors.full_name = getErrorMessage('Full Name', 'required');
+    }
+    if (!isNotEmpty(data.phone_number)) {
+        errors.phone_number = getErrorMessage('Phone Number', 'required');
+    }
+    if (!isNotEmpty(data.relationship)) {
+        errors.relationship = getErrorMessage('Relationship', 'required');
+    }
+   
+    return errors;
+}
