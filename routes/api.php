@@ -29,6 +29,10 @@ Route::group(['prefix' => 'employee'], function () {
     Route::middleware('web')->put('/{id}', [EmployeeController::class, 'update']); // Update an employee
    // Route::delete('/{id}', [EmployeeController::class, 'destroy']); // Delete an employee
    Route::get('/{id}/department', [EmployeeController::class, 'getEmployeesByDepartment']); // Get specific employee by ID
+   Route::post('/{id}/emergency-contact', [EmployeeController::class, 'storeEmergencyContact']);
+   Route::get('/{id}/emergency-contact', [EmployeeController::class, 'getEmergencyContact']);
+   Route::delete('/emergency-contact/{id}', [EmployeeController::class, 'deleteEmergencyContact']);
+
 });
 Route::group(['prefix' => 'graph'], function () {
     Route::get('get-avatar/{email}', [GraphMailerController::class, 'getAvatarImage'])->name('getAvatarImage');

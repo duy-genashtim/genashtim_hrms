@@ -55,7 +55,8 @@
                         <div class="card-body">
                             <strong><i class="fas fa-users  mr-1"></i> Name here</strong>
 
-                            <p>
+                            <p class="mb-1">
+
                                 B.S. in Computer Science from the University of Tennessee at Knoxville
                             </p>
                             <p>
@@ -65,7 +66,9 @@
                             <hr>
                             <strong><i class="fas fa-users  mr-1"></i> Name here</strong>
 
-                            <p>
+
+                            <p class="mb-1">
+
                                 B.S. in Computer Science from the University of Tennessee at Knoxville
                             </p>
                             <p>
@@ -74,12 +77,8 @@
 
                             <hr>
 
-                            <button
-                                @click="addEmergency"
-                                class="btn btn-block btn-outline-primary"
-                                >
-                                Add Emergency Contact
-                                </button>    
+                            <button @click="addEmergency" class="btn btn-block btn-outline-primary">
+
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -118,12 +117,9 @@
                                         <dt class="col-sm-3"><b>Timezone</b></dt>
                                         <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
                                     </dl>
-                                    <button
-                                @click="editProfile"
-                                class="btn  btn-outline-primary"
-                                >
-                                Edit Profile
-                                </button>    
+                                    <button @click="editProfile" class="btn  btn-outline-primary">
+                                        Edit Profile
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -144,12 +140,9 @@
                                 <dt class="col-sm-3"><b>Manager</b></dt>
                                 <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
                             </dl>
-                            <button
-                                @click="editDepartment"
-                                class="btn  btn-outline-primary"
-                                >
+                            <button @click="editDepartment" class="btn  btn-outline-primary">
                                 Edit Department
-                                </button>    
+                            </button>
                         </div><!-- /.card-body -->
                     </div>
                     <!-- /.card -->
@@ -157,14 +150,11 @@
                         <div class="card-header">
                             <h3 class="card-title">Work History</h3>
                             <div class="card-tools">
-                               
-                                    <button
-                                    @click="addWorkHistory"
-                                    class="btn btn-block btn-outline-primary"
-                                    >
+
+                                <button @click="addWorkHistory" class="btn btn-block btn-outline-primary">
                                     Add Work History
-                                    </button>
-                               
+                                </button>
+
                             </div>
                         </div>
                         <div class="card-body ">

@@ -140,7 +140,7 @@ class EmployeeController extends Controller
         ]);
     }
 
-    public function storeEmergencyContact(Request $request)
+    public function storeEmergencyContact(Request $request, $id)
     {
         // Define the validation rules
         $validator = Validator::make($request->all(), [
@@ -151,10 +151,11 @@ class EmployeeController extends Controller
             'address' => 'nullable|string',
         ]);
         // Check if validation fails
-        if ($validator->fails()) {
+        if ($validator->fails() || $id == 0) {
             return response()->json($validator->errors(), 400);
 
         }
+       
         if ($request->id != 0) {
             $contact = EmergencyContact::find($request->id);
             if (!$contact) {
@@ -166,6 +167,23 @@ class EmployeeController extends Controller
             $contact = EmergencyContact::create($request->all());
             return response()->json($contact, 201);
         }
+    }
+
+    public function getEmergencyContact($id){
+        
+        $contacts = EmergencyContact::where('employee_id', $id)->get();
+        // dd($contacts);
+        return response()->json($contacts);
+    }
+
+    public function deleteEmergencyContact($id){
+
+        $contact = EmergencyContact::find($id);
+        if (!$contact) {
+            return response()->json(['message' => 'Emergency contact information not found'], 404);
+        }
+        $contact->delete();
+        return response()->json(['message' => 'Emergency contact deleted successfully']);
     }
 
 }
