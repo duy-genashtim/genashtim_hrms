@@ -77,8 +77,7 @@
 
                             <hr>
 
-                            <button @click="addEmergency" class="btn btn-block btn-outline-primary">
-
+                            <button @click="addEmergency" class="btn btn-block btn-outline-primary"></button>
                         </div>
                         <!-- /.card-body -->
                     </div>
