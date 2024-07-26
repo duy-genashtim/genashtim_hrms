@@ -37,7 +37,7 @@
           <img v-if="authUserStore.user.avatar" 
            v-bind:src="'/'+ authUserStore.user.avatar"
             class="img-circle elevation-2"
-            alt="{{ authUserStore.user.name }}"
+            :alt="authUserStore.user.name ? `Avatar of ${authUserStore.user.name}` : 'User avatar'"
           />
         </div>
         <div class="info">
