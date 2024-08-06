@@ -71,8 +71,7 @@ if (!function_exists('logActivity')) {
             $userId = $id;
             $userEmail = $email !='' ? $email : env('MAIL_FROM_ADDRESS') ;
         }
-        echo $userEmail;
-      exit;
+       
         ActivityLog::create([
             'user_id' => $userId,
             'email' => $userEmail,
