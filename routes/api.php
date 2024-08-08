@@ -39,3 +39,4 @@ Route::group(['prefix' => 'graph'], function () {
     Route::middleware('web')->get('test', [GraphMailerController::class, 'test'])->name('test');
 
 });
+// add some comment on API
