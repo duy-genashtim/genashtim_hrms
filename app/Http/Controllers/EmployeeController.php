@@ -176,7 +176,8 @@ class EmployeeController extends Controller
         return response()->json($contacts);
     }
 
-    public function deleteEmergencyContact($id){
+    public function deleteEmergencyContact($id)
+    {
 
         $contact = EmergencyContact::find($id);
         if (!$contact) {

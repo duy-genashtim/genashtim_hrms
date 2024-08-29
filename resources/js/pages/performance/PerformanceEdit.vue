@@ -137,25 +137,25 @@ import Preloader from "../../components/Preloader.vue";
 import Swal from 'sweetalert2';
 import { useRouter, useRoute } from 'vue-router';
 import { validateEmployeePerformanceForm } from "../../functions";
-
+import { updateFormData } from '../../functions/siteFunctions.js';
 import { DEFAULT_AVATAR } from "../../config/siteSettingsConsts.js";
 
 const pageName = ref({});
 const buttonText = ref({});
 const avatarUrl = ref({});
 const loading = ref(false);
-pageName.value = 'Add New Performance';
-buttonText.value = 'Add Performance';
-
 const errors = ref({});
-
 const router = useRouter();
 const route = useRoute();
-const employeeId = parseInt(route.params.id, 10);
+const performanceId = parseInt(route.params.id, 10);
 avatarUrl.value = DEFAULT_AVATAR;
 const employeeOptions = ref([]);
+pageName.value = 'Update Employee Performance';
+buttonText.value = 'Edit Performance';
+
 //Get Form IDs
 const form = reactive({
+    id: 0,
     employee_id: null,
     performance_dates: null,
     performance_scores: 0,
@@ -202,7 +202,7 @@ const convertEmployeeOptions = (employees) => {
 const getEmployees = () => {
   loading.value = true;
   axios.get('/api/employee').then((response)=>{
-    console.log('response.data');
+    //console.log('response.data');
     // console.log(response.data);
     employeeOptions.value = convertEmployeeOptions(response.data);
   }).catch((error) => {
@@ -229,7 +229,7 @@ const getSpecificEmployee = ( id ) => {
     $('#profile-fullname').html(response.data['first_name']+' '+response.data['middle_name']+' '+response.data['last_name']);
     $('#profile-nickname').html('('+response.data['nick_name']+')');
     $('#profile-jobtitle').html(response.data['job_title']);
-
+    handleEmailAvatar(response.data['email']);
     }).catch((error) => {
             
             console.error(error);
@@ -239,17 +239,49 @@ const getSpecificEmployee = ( id ) => {
  
 };
 
+const fetchEmployee = async () => {
+    if (!isNaN(performanceId) && performanceId > 0) {
+        try {
+            const response = await axios.get(`/api/performances/${performanceId}`);
+            updateFormData(form, response.data);
+            //handleEmailAvatar();
+            console.log(form);
+            $(".profile-user-img").attr("src","/"+avatarUrl.value);
+            getSpecificEmployee( form.employee_id ); 
+        } catch (error) {
+            console.log(error);
+        }
+    } else {
+    }
 
+};
+
+const handleEmailAvatar = async ( email ) => {
+    if (isValidEmail(email)) {
+        try {
+            const response = await axios.get(`/api/graph/get-avatar/${email}`);
+            console.log(response.data);
+            avatarUrl.value = response.data.imageUrl;
+        } catch (error) {
+            console.error('Failed to fetch image URL:', error);
+            avatarUrl.value = DEFAULT_AVATAR;
+        }
+    } else {
+        console.log('Invalid email address');
+        avatarUrl.value = DEFAULT_AVATAR;
+    }
+};
 
 //Used for Onload 
 onMounted(() => {
     $(".profile-user-img").attr("src","/"+avatarUrl.value);
     getEmployees();
-    //getSpecificEmployee(2008);
+    fetchEmployee();
 });
 
 const handleSubmit = async () => {
-    console.log(form);
+    //console.log(form);
+    //alert(form.id);
     if (!validateForm()) {
         Swal.fire(
         'Validation Error!',
@@ -268,11 +300,11 @@ const handleSubmit = async () => {
             confirmButtonText: 'Yes, go ahead and save'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                axios.post('/api/performances',form).then((response)=>{
+                axios.put('/api/performances/'+form.id,form).then((response)=>{
                   
                     Swal.fire({
                         title: 'Employee performance saved successfully.',
-                        text: "Would you like to add new again?",
+                        text: "Would you like to add new?",
                         icon: 'success',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
@@ -281,7 +313,7 @@ const handleSubmit = async () => {
                         cancelButtonText: 'No, I want employee performance list.'
                     }).then(async (result) => {
                         if (result.isConfirmed) {
-                            window.location.reload();
+                            router.push("/admin/performances/add/")
                         }else{
                             router.push("/admin/performances/")
                         }
@@ -300,6 +332,9 @@ const handleSubmit = async () => {
         });
     
 }
+
+
+
 
 
 </script>

@@ -11,7 +11,7 @@ class PerformanceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class PerformanceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            //validator in Form
+            'employee_id' => 'required',
+            'performance_dates' => 'required',
+            'performance_scores' => 'required',
+            'description' => 'nullable'
         ];
     }
 }

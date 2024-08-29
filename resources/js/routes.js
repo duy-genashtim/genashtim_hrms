@@ -9,6 +9,7 @@ import EmployeeProfile from './pages/employee/EmployeeProfile.vue';
 import EmployeeEmergency from './pages/employee/EmployeeEmergency.vue';
 import PerformanceList from './pages/performance/PerformanceList.vue';
 import PerformanceAdd from './pages/performance/PerformanceAdd.vue';
+import PerformanceEdit from './pages/performance/PerformanceEdit.vue';
 
 export default [
     {
@@ -86,6 +87,12 @@ export default [
                 name: 'admin-performances-add',
                 component: PerformanceAdd,
                 meta: { title: 'Add New Performance' },
+            },
+            {
+                path: 'performances/:id/edit',
+                name: 'admin-performances-edit',
+                component: PerformanceEdit,
+                meta: { title: 'Edit Performance' },
             },
         ]
     },

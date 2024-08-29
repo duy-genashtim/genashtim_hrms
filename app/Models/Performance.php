@@ -17,4 +17,9 @@ class Performance extends Model
         'performance_scores',
         'description'    
     ];
+
+    // Relationship to Employee
+    public function employees() {
+        return $this->belongsto(Employee::class);
+    }
 }

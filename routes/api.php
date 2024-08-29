@@ -44,6 +44,10 @@ Route::group(['prefix' => 'graph'], function () {
 
 //Employee Performance 
 Route::group(['prefix' => 'performances'], function () {
-    Route::get('/', [PerformanceController::class, 'index']); 
-    Route::post('/', [PerformanceController::class, 'store']); 
+    Route::get('/', [PerformanceController::class, 'index']); // Get all performances
+    Route::get('/{id}', [PerformanceController::class, 'show']); // Get specific performance by ID
+    Route::post('/', [PerformanceController::class, 'store']); // Add Performances
+    Route::middleware('web')->put('/{id}', [PerformanceController::class, 'update']); // Update an performance
+    Route::delete('/employee-performance/{id}', [PerformanceController::class, 'deleteEmployeePerformance']); //Delete Performances
+    
 });
