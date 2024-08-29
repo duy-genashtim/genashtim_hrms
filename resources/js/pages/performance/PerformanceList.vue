@@ -40,8 +40,8 @@
               <div class="card-body">
                 <!--a-table :columns="columns" :data-source="performancelist" @change="onChange" /-->
                 
-                <a-table :data-source="performancelist"  @change="onChange" >
-                  <a-table-column key="id" title="Index" data-index="id" 
+                <a-table class="antTable" :data-source="performancelist"  @change="onChange" >
+                  <a-table-column class = "ant-table-cell" key="id" title="Index" data-index="id" 
                   :sorter="{ compare: (a, b) => a.id - b.id, multiple: 6 }"
                   />
                   <a-table-column key="full_name" title="Employee Name" data-index="full_name" 
