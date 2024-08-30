@@ -131,8 +131,8 @@
     <Preloader :loading="loading" />
 </template>
 <script setup>
-import { onMounted, reactive, ref } from 'vue';
 import Preloader from "../../components/Preloader.vue";
+import { onMounted, reactive, ref } from 'vue';
 import Swal from 'sweetalert2';
 import { useRouter, useRoute } from 'vue-router';
 
@@ -160,6 +160,7 @@ const employeeOptions = ref([]);
 const router = useRouter();
 const route = useRoute();
 const deptId = parseInt(route.params.id, 10);
+
 const validateForm = () => {
   errors.value = {}; // Reset errors
   if (!form.name) {
@@ -275,13 +276,13 @@ const handleSubmit = async () => {
     console.log(form);
 
     if (!validateForm()) {
-    Swal.fire(
-      'Validation Error!',
-      'Please fill in all required fields.',
-      'error'
-    );
-    return;
-  }
+        Swal.fire(
+        'Validation Error!',
+        'Please fill in all required fields.',
+        'error'
+        );
+        return;
+    }
   var textNotification = form.id == 0 ? "Do you want to add new department?" : "Do you want to update department information";
   Swal.fire({
         title: 'Are you sure?',
