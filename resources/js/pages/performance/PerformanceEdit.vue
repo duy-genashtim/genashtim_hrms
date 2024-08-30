@@ -136,10 +136,9 @@ import { onMounted, reactive, ref } from 'vue';
 import Preloader from "../../components/Preloader.vue";
 import Swal from 'sweetalert2';
 import { useRouter, useRoute } from 'vue-router';
-import { validateEmployeePerformanceForm } from "../../functions";
+import { validateEmployeePerformanceForm, isValidEmail } from "../../functions";
 import { updateFormData } from '../../functions/siteFunctions.js';
 import { DEFAULT_AVATAR } from "../../config/siteSettingsConsts.js";
-
 const pageName = ref({});
 const buttonText = ref({});
 const avatarUrl = ref({});
