@@ -94,6 +94,12 @@ export default [
                 component: PerformanceEdit,
                 meta: { title: 'Edit Performance' },
             },
+            {
+                path: 'test/chart',
+                name: 'test-chart',
+                component: import('./pages/test/chart.vue'),
+                meta: { title: 'Test Chart' },
+            },
         ]
     },
 ];
