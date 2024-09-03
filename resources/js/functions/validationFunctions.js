@@ -118,3 +118,13 @@ export function validateEmployeePerformanceForm(data) {
    
     return errors;
 }
+
+export function validateWorkHistoryForm(data) {
+    const errors = {};
+
+    if (!isNotEmpty(data.job_title)) {
+        errors.employee_id = getErrorMessage('Job Title', 'required');
+    }
+    
+    return errors;
+}

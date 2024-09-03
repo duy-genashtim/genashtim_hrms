@@ -281,6 +281,9 @@ const fetchEmployee = async () => {
 const addEmergency = () => {
   router.push({name: 'admin-employee-emergency-add', params:employeeId});
 };
+const addWorkHistory = () => {
+  router.push({name: 'admin-employee-workhistory-add', params:employeeId});
+};
 onMounted(() => {
     // fetchEmployee();
    

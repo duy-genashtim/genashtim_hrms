@@ -7,6 +7,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\GraphMailerController;
 use App\Http\Controllers\PerformanceController;
+use App\Http\Controllers\WorkHistoryController;
 
 
 // Route::get('/user', function (Request $request) {
@@ -34,6 +35,11 @@ Route::group(['prefix' => 'employee'], function () {
    Route::post('/{id}/emergency-contact', [EmployeeController::class, 'storeEmergencyContact']);
    Route::get('/{id}/emergency-contact', [EmployeeController::class, 'getEmergencyContact']);
    Route::delete('/emergency-contact/{id}', [EmployeeController::class, 'deleteEmergencyContact']);
+   
+   Route::get('/{id}/work-history', [WorkHistoryController::class, 'index']); // Get all performances
+   Route::post('/{id}/work-history', [WorkHistoryController::class, 'store']);
+   Route::get('/{id}/work-history', [WorkHistoryController::class, 'show']);
+   Route::delete('/work-history/{id}', [WorkHistoryController::class, 'deleteWorkHistory']);
 
 });
 Route::group(['prefix' => 'graph'], function () {

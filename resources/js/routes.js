@@ -10,6 +10,7 @@ import EmployeeEmergency from './pages/employee/EmployeeEmergency.vue';
 import PerformanceList from './pages/performance/PerformanceList.vue';
 import PerformanceAdd from './pages/performance/PerformanceAdd.vue';
 import PerformanceEdit from './pages/performance/PerformanceEdit.vue';
+import EmployeeWorkHistory from './pages/employee/EmployeeWorkHistory.vue';
 
 export default [
     {
@@ -75,6 +76,12 @@ export default [
                 name: 'admin-employee-emergency-add',
                 component: EmployeeEmergency,
                 meta: { title: 'Add new employee emergency contact' },
+            },
+            {
+                path: 'employees/workhistory/:id/add',
+                name: 'admin-employee-workhistory-add',
+                component: EmployeeWorkHistory,
+                meta: { title: 'Add new employee work history' },
             },
             {
                 path: 'performances',
