@@ -32,4 +32,9 @@ class Employee extends Model
     public function emergencyContacts() {
         return $this->hasMany(EmergencyContact::class);
     }
+     // Relationship to Performances
+     public function performances() {
+        return $this->hasMany(Performance::class, 'employee_id');
+    }
+
 }

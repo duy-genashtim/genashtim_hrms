@@ -2,6 +2,7 @@ import './bootstrap';
 // import '../css/app.css'; 
 import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js';
 import 'admin-lte/dist/js/adminlte.min.js';
+
 import {appName} from './config/constants.js';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia'
@@ -20,9 +21,12 @@ const router = createRouter({
     routes: Routes
 });
 
+
 router.beforeEach((to, from)=>{
     document.title = to.meta?.title? to.meta.title + " || " + appName : appName;
 });
+
+
 app.use(Select);
 app.use(Switch);
 app.use(TreeSelect);
@@ -30,4 +34,5 @@ app.use(Table);
 app.use(Transfer);
 app.use(pinia);
 app.use(router);
+
 app.mount("#app");

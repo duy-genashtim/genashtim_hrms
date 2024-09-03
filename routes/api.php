@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\GraphMailerController;
+use App\Http\Controllers\PerformanceController;
+
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -38,4 +40,14 @@ Route::group(['prefix' => 'graph'], function () {
     Route::get('get-avatar/{email}', [GraphMailerController::class, 'getAvatarImage'])->name('getAvatarImage');
     Route::middleware('web')->get('test', [GraphMailerController::class, 'test'])->name('test');
 
+});
+
+//Employee Performance 
+Route::group(['prefix' => 'performances'], function () {
+    Route::get('/', [PerformanceController::class, 'index']); // Get all performances
+    Route::get('/{id}', [PerformanceController::class, 'show']); // Get specific performance by ID
+    Route::post('/', [PerformanceController::class, 'store']); // Add Performances
+    Route::middleware('web')->put('/{id}', [PerformanceController::class, 'update']); // Update an performance
+    Route::delete('/employee-performance/{id}', [PerformanceController::class, 'deleteEmployeePerformance']); //Delete Performances
+    
 });

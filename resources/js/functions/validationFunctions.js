@@ -102,3 +102,19 @@ export function validateEmergencyContactForm(data) {
    
     return errors;
 }
+
+export function validateEmployeePerformanceForm(data) {
+    const errors = {};
+
+    if (!isNotEmpty(data.employee_id)) {
+        errors.employee_id = getErrorMessage('Full Name', 'required');
+    }
+    if (!isNotEmpty(data.performance_scores)) {
+        errors.performance_scores = getErrorMessage('Performance Scores', 'required');
+    }
+    if (!isNotEmpty(data.performance_dates)) {
+        errors.performance_dates = getErrorMessage('Performance Date', 'required');
+    }
+   
+    return errors;
+}
